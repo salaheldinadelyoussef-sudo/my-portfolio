@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salah Eldin Adel | Portfolio 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg-dark: #090e14;
+      --bg-card: #0f1722;
+      --bg-card-alt: #141f2d;
+      --border-color: #1e2c3f;
+      --accent: #00bcd4;
+      --accent-glow: rgba(0, 188, 212, 0.2);
+      --text-main: #f0f4f8;
+      --text-muted: #8b9bb4;
+      --text-dim: #5c6c84;
+      --font-main: 'Inter', sans-serif;
+      --font-code: 'Fira Code', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-dark);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent);
+    }
+
+    /* Header & Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(9, 14, 20, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-code);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    .logo-badge {
+      background: var(--accent);
+      color: var(--bg-dark);
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-weight: 800;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .section-tag {
+      font-family: var(--font-code);
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      max-width: 650px;
+      margin-bottom: 3.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-text h1 {
+      font-size: 3.8rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin: 1rem 0;
+      letter-spacing: -1px;
+    }
+
+    .hero-text .subtitle {
+      color: var(--accent);
+      font-family: var(--font-code);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-text p {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      max-width: 500px;
+      margin-bottom: 2rem;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: #051019;
+      font-weight: 700;
+      padding: 0.85rem 1.8rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px var(--accent-glow);
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(0, 188, 212, 0.4);
+    }
+
+    .hero-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      position: relative;
+    }
+
+    .pipeline-preview {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      margin: 1.5rem 0;
+      font-family: var(--font-code);
+      font-size: 0.85rem;
+    }
+
+    .pipeline-step {
+      text-align: center;
+    }
+
+    .pipeline-step span {
+      display: block;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    /* About / Profile Section */
+    .profile-card-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    .profile-info-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 2.5rem;
+    }
+
+    .profile-stats-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      gap: 1.5rem;
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.8rem;
+    }
+
+    .stat-row .label {
+      color: var(--text-dim);
+      font-family: var(--font-code);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+    }
+
+    .stat-row .val {
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .skill-header i {
+      font-size: 1.8rem;
+      color: var(--accent);
+    }
+
+    .skill-status {
+      font-size: 0.7rem;
+      font-family: var(--font-code);
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(0, 188, 212, 0.1);
+      color: var(--accent);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .skill-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .skill-category {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      font-family: var(--font-code);
+    }
+
+    /* Projects Section */
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      margin-bottom: 3.5rem;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .project-preview {
+      background: #080d12;
+      padding: 2.5rem;
+      border-right: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .schema-box {
+      background: #0d151e;
+      border: 1px solid #1a2736;
+      border-radius: 8px;
+      padding: 1.2rem;
+      font-family: var(--font-code);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .schema-title {
+      color: var(--accent);
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      border-bottom: 1px solid #1a2736;
+      padding-bottom: 0.3rem;
+    }
+
+    .project-content {
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-goal-item {
+      margin-bottom: 1.2rem;
+    }
+
+    .project-goal-item span {
+      font-family: var(--font-code);
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .project-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .project-tag {
+      background: var(--bg-card-alt);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-family: var(--font-code);
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    /* Roadmap */
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .roadmap-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .roadmap-card.active {
+      border-color: var(--accent);
+    }
+
+    .roadmap-badge {
+      font-family: var(--font-code);
+      font-size: 0.75rem;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+      display: inline-block;
+      font-weight: 600;
+    }
+
+    .roadmap-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .roadmap-list {
+      list-style: none;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .roadmap-list li {
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .roadmap-list li::before {
+      content: "•";
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* Contact Section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.8rem;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s;
+    }
+
+    .contact-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .contact-card i {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .contact-card .type {
+      font-family: var(--font-code);
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+
+    .contact-card .info {
+      font-weight: 700;
+      margin: 0.5rem 0 1rem 0;
+      word-break: break-all;
+    }
+
+    .contact-card .action {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 2.5rem 0;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      font-family: var(--font-code);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid, .profile-card-grid, .project-card, .roadmap-grid {
+        grid-template-columns: 1fr;
+      }
+      .project-preview {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .hero-text h1 {
+        font-size: 2.8rem;
+      }
+      nav ul {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <span class="logo-badge">SA</span>
+        <span>/ PORTFOLIO 2026</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#learning">Learning</a></li>
+          <li><a href="#future">Future</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="container hero" id="home">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <span class="subtitle">COMPUTER SCIENCE STUDENT</span>
+        <h1>SALAH ELDIN<br><span style="color: var(--accent);">ADEL</span></h1>
+        <p>Aspiring Data Engineer building practical skills in Python, SQL, databases, and modern data workflows.</p>
+        <a href="#projects" class="cta-btn">
+          Explore My Work <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="hero-card">
+        <div style="font-family: var(--font-code); color: var(--text-dim); font-size: 0.85rem; margin-bottom: 1rem;">
+          // DATA_PIPELINE_FLOW
+        </div>
+        <div class="pipeline-preview">
+          <div class="pipeline-step">
+            <span>SOURCE</span>
+            <small>CSV / Logs</small>
+          </div>
+          <div><i class="fa-solid fa-arrow-right" style="color: var(--text-dim);"></i></div>
+          <div class="pipeline-step">
+            <span>PROCESS</span>
+            <small>ETL / Python</small>
+          </div>
+          <div><i class="fa-solid fa-arrow-right" style="color: var(--text-dim);"></i></div>
+          <div class="pipeline-step">
+            <span>STORE</span>
+            <small>SQL DB</small>
+          </div>
+        </div>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 1rem;">
+          2024 — 2028 • MNU • Egypt
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About / Profile -->
+  <section class="container" id="about">
+    <span class="section-tag">01 / Profile</span>
+    <h2 class="section-title">Curiosity, structured.</h2>
+    <div class="profile-card-grid">
+      <div class="profile-info-box">
+        <p style="font-size: 1.15rem; color: var(--text-main); margin-bottom: 1.5rem;">
+          I'm a Computer Science student at <strong>MNU</strong> with a growing interest in <strong>Data Engineering, databases, SQL, and Python</strong>.
+        </p>
+        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+          I enjoy learning new technologies and turning what I learn into practical, focused projects. Currently developing my technical foundation through university coursework and the <strong>DEPI Data Engineering Track</strong>.
+        </p>
+        <div style="display: flex; gap: 1rem; font-family: var(--font-code); font-size: 0.9rem;">
+          <span style="color: var(--accent);"><i class="fa-solid fa-code"></i> BUILD</span>
+          <span style="color: var(--accent);"><i class="fa-solid fa-network-wired"></i> STRUCTURE</span>
+          <span style="color: var(--accent);"><i class="fa-solid fa-compass"></i> DISCOVER</span>
+        </div>
+      </div>
+      <div class="profile-stats-box">
+        <div class="stat-row">
+          <span class="label">University</span>
+          <span class="val">MNU</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Study Period</span>
+          <span class="val">2024 — 2028</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Location</span>
+          <span class="val">Egypt</span>
+        </div>
+        <div class="stat-row" style="border-bottom: none;">
+          <span class="label">Focus</span>
+          <span class="val" style="color: var(--accent);">Data Engineering</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Toolkit -->
+  <section class="container" id="skills">
+    <span class="section-tag">02 / Toolkit</span>
+    <h2 class="section-title">Skills in motion.</h2>
+    <p class="section-desc">No inflated scores — only honest progress, solid foundations, and current technical focus.</p>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-header">
+          <i class="fa-brands fa-python"></i>
+          <span class="skill-status">Learning</span>
+        </div>
+        <div class="skill-title">Python</div>
+        <div class="skill-category">Programming</div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-header">
+          <i class="fa-solid fa-database"></i>
+          <span class="skill-status">Developing</span>
+        </div>
+        <div class="skill-title">SQL</div>
+        <div class="skill-category">Data & Databases</div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-header">
+          <i class="fa-solid fa-chart-pie"></i>
+          <span class="skill-status">Learning</span>
+        </div>
+        <div class="skill-title">NumPy & Pandas</div>
+        <div class="skill-category">Data Analysis Libraries</div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-header">
+          <i class="fa-solid fa-server"></i>
+          <span class="skill-status">Familiar</span>
+        </div>
+        <div class="skill-title">Relational DBs</div>
+        <div class="skill-category">Database Management</div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-header">
+          <i class="fa-solid fa-code"></i>
+          <span class="skill-status">University</span>
+        </div>
+        <div class="skill-title">C++ & C#</div>
+        <div class="skill-category">Core Languages</div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-header">
+          <i class="fa-brands fa-html5"></i>
+          <span class="skill-status">Studied</span>
+        </div>
+        <div class="skill-title">HTML & CSS</div>
+        <div class="skill-category">Web Fundamentals</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Selected Projects -->
+  <section class="container" id="projects">
+    <span class="section-tag">03 / Selected Work</span>
+    <h2 class="section-title">Three Learning Projects.</h2>
+    <p class="section-desc">Small in scope, deliberate and clear in what they practice.</p>
+
+    <!-- Project 1 -->
+    <div class="project-card">
+      <div class="project-preview">
+        <div class="schema-box">
+          <div class="schema-title"><i class="fa-solid fa-diagram-project"></i> Relational Model (3NF)</div>
+          <div>[STUDENTS] (student_id PK, name, email)</div>
+          <div>&nbsp;&nbsp;↳ [GRADES] (grade_id PK, student_id FK, score)</div>
+          <div>[COURSES] (course_id PK, title, credits)</div>
+        </div>
+        <div class="schema-box" style="margin-bottom: 0;">
+          <div class="schema-title"><i class="fa-solid fa-terminal"></i> Query Sample</div>
+          <code>SELECT s.name, AVG(g.score)<br>FROM students s<br>JOIN grades g ON s.id = g.student_id;</code>
+        </div>
+      </div>
+      <div class="project-content">
+        <div>
+          <span style="font-family: var(--font-code); color: var(--accent); font-size: 0.8rem;">PROJECT 01</span>
+          <h3 style="font-size: 1.8rem; margin: 0.3rem 0 1.2rem 0;">Student Management Database</h3>
+          <div class="project-goal-item">
+            <span>Goal</span>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Organize academic records with clear primary-foreign key relationships.</p>
+          </div>
+          <div class="project-goal-item">
+            <span>Practiced</span>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Joins, data aggregation, filtering, search, and record updates.</p>
+          </div>
+          <div class="project-goal-item">
+            <span>Key Takeaway</span>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">How keys and strict relationships guarantee data consistency and accurate retrieval.</p>
+          </div>
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">SQL</span>
+          <span class="project-tag">Database Management</span>
+          <span class="project-tag">Aggregation</span>
+          <span class="project-tag">Joins</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card">
+      <div class="project-preview">
+        <div class="schema-box">
+          <div class="schema-title"><i class="fa-solid fa-book-bookmark"></i> Schema Setup</div>
+          <div>[BOOKS] (book_id PK, title, available)</div>
+          <div>[STUDENTS] (student_id PK, name, email)</div>
+          <div>[BORROWING] (borrow_id PK, book_id FK, return_date)</div>
+        </div>
+        <div class="schema-box" style="margin-bottom: 0;">
+          <div class="schema-title"><i class="fa-solid fa-arrows-spin"></i> State Transition</div>
+          <code>AVAILABLE = TRUE ➔ DUE_DATE ➔ RETURN</code>
+        </div>
+      </div>
+      <div class="project-content">
+        <div>
+          <span style="font-family: var(--font-code); color: var(--accent); font-size: 0.8rem;">PROJECT 02</span>
+          <h3 style="font-size: 1.8rem; margin: 0.3rem 0 1.2rem 0;">Library Management Database</h3>
+          <div class="project-goal-item">
+            <span>Goal</span>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Track real-time book availability and maintain a borrowing transaction log.</p>
+          </div>
+          <div class="project-goal-item">
+            <span>Practiced</span>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Workflows for search, borrowing, returning, and filtering status logs.</p>
+          </div>
+          <div class="project-goal-item">
+            <span>Key Takeaway</span>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Modeling state changes and transactional updates across interconnected entities.</p>
+          </div>
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">SQL</span>
+          <span class="project-tag">Table Design</span>
+          <span class="project-tag">Transactions</span>
+          <span class="project-tag">Records</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card">
+      <div class="project-preview">
+        <div class="schema-box">
+          <div class="schema-title"><i class="fa-solid fa-chart-line"></i> Analytics Summary</div>
+          <div>Total Sales: <strong style="color: #fff;">$48.2K</strong> | Average: <strong style="color: #fff;">$324</strong></div>
+          <div>Top Product: <strong style="color: #fff;">Notebook</strong> | Peak Month: <strong style="color: #fff;">August</strong></div>
+        </div>
+        <div class="schema-box" style="margin-bottom: 0;">
+          <div class="schema-title"><i class="fa-solid fa-code"></i> Data Grouping</div>
+          <code>df.groupby('product')['sales'].sum()</code>
+        </div>
+      </div>
+      <div class="project-content">
+        <div>
+          <span style="font-family: var(--font-code); color: var(--accent); font-size: 0.8rem;">PROJECT 03</span>
+          <h3 style="font-size: 1.8rem; margin: 0.3rem 0 1.2rem 0;">Sales Data Analyzer</h3>
+          <div class="project-goal-item">
+            <span>Goal</span>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Convert raw sales datasets into actionable statistical indicators and trends.</p>
+          </div>
+          <div class="project-goal-item">
+            <span>Practiced</span>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">CSV loading, missing-data cleanup, aggregation, and performance metrics.</p>
+          </div>
+          <div class="project-goal-item">
+            <span>Key Takeaway</span>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Solid data analysis begins with clear metrics, clean columns, and consistent formats.</p>
+          </div>
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Pandas</span>
+          <span class="project-tag">NumPy</span>
+          <span class="project-tag">CSV ETL</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Learning & Roadmap -->
+  <section class="container" id="learning">
+    <span class="section-tag">04 / Trajectory</span>
+    <h2 class="section-title">What's Next?</h2>
+    <p class="section-desc">A structured progression from fundamentals to production-ready pipelines.</p>
+
+    <div class="roadmap-grid">
+      <div class="roadmap-card active">
+        <span class="roadmap-badge">01 / IN PROGRESS</span>
+        <h3>Build the Base</h3>
+        <ul class="roadmap-list">
+          <li>Python fundamentals</li>
+          <li>Advanced SQL querying</li>
+          <li>Relational Database design</li>
+          <li>NumPy & Pandas arrays</li>
+        </ul>
+      </div>
+
+      <div class="roadmap-card">
+        <span class="roadmap-badge">02 / UP NEXT</span>
+        <h3>Make it Real</h3>
+        <ul class="roadmap-list">
+          <li>Larger, real-world datasets</li>
+          <li>End-to-end ETL scripts</li>
+          <li>DEPI Data Track milestones</li>
+          <li>API ingestion & automation</li>
+        </ul>
+      </div>
+
+      <div class="roadmap-card">
+        <span class="roadmap-badge">03 / LONG VIEW</span>
+        <h3>Connect the System</h3>
+        <ul class="roadmap-list">
+          <li>Distributed data pipelines</li>
+          <li>Data warehousing</li>
+          <li>Production-ready workflows</li>
+          <li>Data Engineering career</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="container" id="contact">
+    <span class="section-tag">05 / Connect</span>
+    <h2 class="section-title">Let's Connect.</h2>
+    <p class="section-desc">I'm always keen to learn, collaborate with fellow developers, and discuss data technologies.</p>
+
+    <div class="contact-grid">
+      <a href="mailto:salaheldinadelyoussef@gmail.com" class="contact-card">
+        <div>
+          <i class="fa-regular fa-envelope"></i>
+          <div class="type">Email</div>
+          <div class="info">salaheldinadelyoussef@gmail.com</div>
+        </div>
+        <div class="action">Send Email <i class="fa-solid fa-arrow-right"></i></div>
+      </a>
+
+      <a href="https://wa.me/201207479881" target="_blank" class="contact-card">
+        <div>
+          <i class="fa-brands fa-whatsapp"></i>
+          <div class="type">WhatsApp</div>
+          <div class="info">+20 120 747 9881</div>
+        </div>
+        <div class="action">Message Me <i class="fa-solid fa-arrow-right"></i></div>
+      </a>
+
+      <a href="https://linkedin.com" target="_blank" class="contact-card">
+        <div>
+          <i class="fa-brands fa-linkedin-in"></i>
+          <div class="type">LinkedIn</div>
+          <div class="info">Salah Eldin Adel</div>
+        </div>
+        <div class="action">Visit Profile <i class="fa-solid fa-arrow-right"></i></div>
+      </a>
+
+      <a href="https://facebook.com" target="_blank" class="contact-card">
+        <div>
+          <i class="fa-brands fa-facebook-f"></i>
+          <div class="type">Facebook</div>
+          <div class="info">Facebook Profile</div>
+        </div>
+        <div class="action">Visit Profile <i class="fa-solid fa-arrow-right"></i></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container" style="padding: 0 2rem;">
+      <p>Salah Eldin Adel • MNU (2024 — 2028) • Data Engineering Track</p>
+    </div>
+  </footer>
+
+</body>
+</html>
